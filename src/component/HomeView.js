@@ -1,0 +1,47 @@
+import { Link } from "react-router-dom";
+import Hero from "./Hero";
+
+
+const HomeView = (topRated) => {
+    const MovieCard = ({movie}) => {
+        const movieDetailUrl = `/Movie/${movie.id}`;
+        const posterUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+        return(
+            <div className="col-lg-2 col-md-3 col-6 mb-3 mt-3">
+                <div className="card" style={{height:"30rem", position:"relative"}}>
+                    <img src={posterUrl} className="card-img-top" alt="..."/>
+                    <div className="card-body">
+                        <h5 className="card-title">{movie.title}</h5>
+                        <div className="mb-3" style={{ position: "absolute", bottom: "0", width: "100%" }}>
+                            <Link to={movieDetailUrl} className="btn btn-primary">
+                                Show Details
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const resultsHtml = topRated.topRated.map((object, index) => {
+        return(
+            <MovieCard movie={object} key={index} />
+        )  
+    })
+
+    
+    return(
+        <>
+            <Hero text="Now Showing | MovieFlix"/>
+            {resultsHtml &&
+                <div className="container">
+                    <div className="row">
+                        {resultsHtml}
+                    </div>
+                </div>
+            }
+        </>
+    )
+}
+
+export default HomeView;
