@@ -28,7 +28,7 @@ const Navbar = ({searchText, setSearchText}) =>{
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={updateSearchText}/>
-                        <button className="btn btn-outline-success" type="submit">Search</button>
+                        <button className="btn btn-outline-success" type="submit" style={{display:"none"}}>Search</button>
                     </form>
                 </div>
             </div>

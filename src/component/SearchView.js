@@ -8,12 +8,16 @@ const SearchView = ({keyword, searchResult}) => {
         const movieDetailUrl = `/Movie/${movie.id}`;
         const posterUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
         return(
-            <div className="col-lg-2 col-md-3 col-2 mb-3 mt-3">
-                <div className="card">
+            <div className="col-lg-2 col-md-3 col-6 mb-3 mt-3">
+                <div className="card" style={{height:"30rem", position:"relative"}}>
                     <img src={posterUrl} className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{movie.title}</h5>
-                        <Link to={movieDetailUrl} className="btn btn-primary">Show Details</Link>
+                        <div className="mb-3" style={{ position: "absolute", bottom: "0", width: "100%" }}>
+                            <Link to={movieDetailUrl} className="btn btn-primary">
+                                Show Details
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
